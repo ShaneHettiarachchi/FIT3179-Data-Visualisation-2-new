@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Natural Disasters Dashboard</title>
+
+    <!-- Styling library -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Vega lite dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  </head>
+
+  <body class="bg-slate-900 text-gray-100 flex items-center justify-center" style="width: 1200px; height: 3000px; margin: 0 auto;">
+  <div class="bg-slate-800 p-10 rounded-2xl shadow-lg w-[1200px] h-[3000px]">
+    <h1 class="text-5xl font-bold mb-8 text-center">Natural Disasters</h1>
+    <h2 class="text-3xl font-semibold mb-8 text-center">Australia vs World</h2>
+
+    <section class="text-center">
+      <h2 class="text-2xl font-semibold mb-4">Major Disasters in Australia</h2>
+
+      
+      <select
+        id="map-select" class="text-gray-800 font-medium rounded-lg p-2 mb-6 shadow focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <option value="Charts/Maps/Fires.json">Fires</option>
+        <option value="Charts/Maps/Flood.json">Floods</option>
+        <option value="Charts/Maps/Earthquake.json">Earthquakes</option>
+        <option value="Charts/Maps/Drought.json">Droughts</option>
+        <option value="Charts/Maps/Cyclone.json">Cyclones</option>
+        
+      </select>
+
+      <div id="fire-map" class="bg-slate-300 p-4 rounded-xl shadow-lg w-[1000px] h-[600px] mx-auto"></div>
+    </section>
+
+
+    <!-- Embed all charts -->
+     <!-- I used GitHub Copilot, to help create the functionality for the dropdown disaster selctor
+      the generated code is the following 28 lines of code, slightly altered to fit the context of my project
+      only 1 iteration was used.-->
+    <script>
+      const embedOptions = { actions: false };
+
+      const mapSelect = document.getElementById("map-select");
+      const target = "#fire-map";
+
+      async function loadMap(path) {
+        const container = document.querySelector(target);
+        container.textContent = "Loading...";
+        try {
+          const res = await fetch(path);
+          if (!res.ok) throw new Error("Failed to load spec: " + res.status);
+          const spec = await res.json();
+          await vegaEmbed(target, spec, embedOptions);
+        } catch (err) {
+          console.error(err);
+          container.textContent = "Failed to load visualization — check console.";
+        }
+      }
+
+      // Load initial selection
+      loadMap(mapSelect.value);
+
+      // Change handler
+      mapSelect.addEventListener("change", () => {
+        loadMap(mapSelect.value);
+      });
+    </script>
+
+
+  </body>
+</html>
