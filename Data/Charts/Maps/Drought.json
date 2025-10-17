@@ -1,0 +1,45 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 500,
+  "projection": {"type": "mercator"},
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/ShaneHettiarachchi/FIT3179-data-visualisation-2-new/main/Data/Australia/AusShape.topojson",
+        "format": {"type": "topojson", "feature": "AusShape"}
+      },
+      "mark": {"type": "geoshape", "fill": "#1e293b", "stroke": "#334155", "strokeWidth": 0.7}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/ShaneHettiarachchi/FIT3179-data-visualisation-2-new/main/Data/Australia/AusDroughts.csv"
+      },
+      "mark": {"type": "circle", "opacity": 0.7, "fill": "#91b6b3"},
+      "encoding": {
+        "longitude": {"field": "Longitude", "type": "quantitative"},
+        "latitude": {"field": "Latitude", "type": "quantitative"},
+        "size": {
+          "field": "Severity (km2)",
+          "type": "quantitative",
+          "scale": {"domain": [5000, 500000], "range": [10, 1000]},
+          "legend": {
+            "title": "Area affected (km^2)",
+            "symbolType": "circle"
+          }
+        },
+        "tooltip": [
+          {"field": "Fromdate", "title": "Starting date"},
+          {"field": "Duration (days)", "title": "Duration in days"},
+          {"field": "Severity (km2)","title": "Area affected (km^2)"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background": "transparent",
+    "legend": {"labelColor": "#000000", "titleColor": "#000000"},
+    "title": {"color": "#ffffff"},
+    "view": {"stroke": "transparent"}
+  }
+}

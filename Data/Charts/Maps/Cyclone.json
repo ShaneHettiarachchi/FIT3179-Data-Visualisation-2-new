@@ -1,0 +1,44 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 500,
+  "projection": {"type": "mercator"},
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/ShaneHettiarachchi/FIT3179-data-visualisation-2-new/main/Data/Australia/AusShape.topojson",
+        "format": {"type": "topojson", "feature": "AusShape"}
+      },
+      "mark": {"type": "geoshape", "fill": "#1e293b", "stroke": "#334155", "strokeWidth": 0.7}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/ShaneHettiarachchi/FIT3179-data-visualisation-2-new/main/Data/Australia/AusCyclones.csv"
+      },
+      "mark": {"type": "circle", "opacity": 0.7, "fill": "#ff00d4"},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "size": {
+          "field": "Maximum wind speed (km/h)",
+          "type": "quantitative",
+          "scale": {"domain": [50, 300], "range": [50, 500]},
+          "legend": {
+            "title": "Maximum wind speed (km/h)",
+            "symbolType": "circle"
+          }
+        },
+        "tooltip": [
+          {"field": "Category", "title": "Category"},
+          {"field": "Maximum wind speed (km/h)", "title": "Max wind speed (km/h)"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background": "transparent",
+    "legend": {"labelColor": "#000000", "titleColor": "#000000"},
+    "title": {"color": "#ffffff"},
+    "view": {"stroke": "transparent"}
+  }
+}

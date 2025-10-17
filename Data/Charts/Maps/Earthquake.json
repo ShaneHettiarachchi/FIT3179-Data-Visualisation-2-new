@@ -1,0 +1,45 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 500,
+  "projection": {"type": "mercator"},
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/ShaneHettiarachchi/FIT3179-data-visualisation-2-new/main/Data/Australia/AusShape.topojson",
+        "format": {"type": "topojson", "feature": "AusShape"}
+      },
+      "mark": {"type": "geoshape", "fill": "#1e293b", "stroke": "#334155", "strokeWidth": 0.7}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/ShaneHettiarachchi/FIT3179-data-visualisation-2-new/main/Data/Australia/AusEarthquakes.csv"
+      },
+      "mark": {"type": "circle", "opacity": 0.7, "fill": "#93b400"},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "size": {
+          "field": "Earthquake Magnitude (M)",
+          "type": "quantitative",
+          "scale": {"domain": [4, 6], "range": [30, 400]},
+          "legend": {
+            "title": "Earthquake Magnitude",
+            "symbolType": "circle"
+          }
+        },
+        "tooltip": [
+          {"field": "Earthquake Magnitude (M)", "title": "Earthquake Magnitude"},
+          {"field": "Depth (km)", "title": "Depth (km)"},
+          {"field": "Exposed Population (within 100 km)", "title": "Exposed population"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background": "transparent",
+    "legend": {"labelColor": "#000000", "titleColor": "#000000"},
+    "title": {"color": "#ffffff"},
+    "view": {"stroke": "transparent"}
+  }
+}
