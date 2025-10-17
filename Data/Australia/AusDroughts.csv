@@ -1,0 +1,11 @@
+﻿Description,Alertlevel,Alertscore,Episodealertscore,Country,Fromdate,Todate,Severity (km2),Iso3,Gdacs id,Duration (days),Impact,Longitude,Latitude
+Orange Drought in Australia from: 21 Feb 2018  to: 24 Nov 2018 .,Orange,2,1,Australia,21/02/2018,24/11/2018 16:27,142608,AUS,DR 1012191,277,Medium impact for agricultural drought in 142608 km2,144.5,-33.5
+Green Drought in Australia from: 21 Dec 2018  to: 24 May 2019 .,Green,1,0.75,Australia,21/12/2018,24/05/2019 14:07,107466,AUS,DR 1012840,141,Minor impact for agricultural drought in 107466 km2,150.523,-29.052
+Orange Drought in Australia from: 21 Jun 2019  to: 03 Mar 2020 .,Orange,2,1.25,Australia,21/06/2019,3/03/2020 14:37,520141,AUS,DR 1013281,235,Medium impact for agricultural drought in 520141 km2,149.759,-29.708
+Green Drought in Australia from: 21 Sep 2019  to: 03 Mar 2020 .,Green,1,0.5,Australia,21/09/2019,3/03/2020 14:37,112811,AUS,DR 1013588,143,Minor impact for agricultural drought in 112811 km2,118.002,-32.238
+Green Drought in Australia from: 11 Mar 2020  to: 20 Nov 2020 .,Green,1,0.5,Australia,11/03/2020,20/11/2020 0:00,93955,AUS,DR 1013971,245,Minor impact for agricultural drought in 93955 km2,121.5,-30.5
+Green Drought in Australia from: 21 Jul 2023  to: 15 Sep 2024 .,Green,1,0.25,Australia,21/07/2023,15/09/2024 0:00,28728,AUS,DR 1016588,356,Minor impact for agricultural drought in 28728 km2,122.559,-33.105
+Green Drought in Australia from: 21 Jul 2023  to: 17 Jan 2024 .,Green,1,0.25,Australia,21/07/2023,17/01/2024 0:00,44250,AUS,DR 1016677,143,Minor impact for agricultural drought in 44250 km2,150.989,-26.219
+Green Drought in Australia from: 11 Jan 2024  to: 03 Jul 2024 .,Green,1,0.5,Australia,11/01/2024,3/07/2024 0:00,106038,AUS,DR 1016955,121,Minor impact for agricultural drought in 106038 km2,118.967,-21.093
+Green Drought in Australia from: 21 Mar 2024  to: 20 Dec 2024 .,Green,1,0.25,Australia,21/03/2024,20/12/2024 0:00,5240,AUS,DR 1017013,265,Minor impact for agricultural drought in 5240 km2,137.993,-35.068
+Green Drought in Australia from: 21 Jan 2025  to: 12 Aug 2025 .,Green,1,0.75,Australia,21/01/2025,12/08/2025 0:00,143084,AUS,DR 1017869,171,Minor impact for agricultural drought in 143084 km2,139.924,-35.131

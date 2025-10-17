@@ -1,0 +1,19 @@
+﻿description,alertlevel,alertscore,episodealertlevel,episodealertscore,country,fromdate,todate,source,iso3,Earthquake Magnitude (M),Capacity,Depth (km),longitude,latitude,Exposed Population (within 100 km)
+Green M 4.7 Earthquake in Australia at: 30 Jul 2003 11:32:40.,Green,1,Green,0.5,Australia,30/07/2003 11:32,30/07/2003 11:32,NEIC,AUS,4.7,-1,10,157.47,-58,-1
+Green M 5.9 Earthquake in Australia at: 26 Feb 2004 22:58:41.,Green,1,Green,0,Australia,26/02/2004 22:58,26/02/2004 22:58,NEIC,AUS,5.9,-1,10,159.56,-53.22,0
+Green M 4.8 Earthquake in Australia at: 28 Jul 2006 02:52:49.,Green,1,Green,0.5,Australia,28/07/2006 2:52,28/07/2006 2:52,NEIC,AUS,4.8,-1,18.9,160.113,-52.775,0
+Green M 5.3 Earthquake in Australia at: 24 Nov 2007 10:46:09.,Green,1,Green,0.5,Australia,24/11/2007 10:46,24/11/2007 10:46,NEIC,AUS,5.3,-1,10,158.114,-56.5817,0
+Green M 4.6 Earthquake in Australia at: 28 Dec 2009 12:19:55.,Green,1,Green,0.5,Australia,28/12/2009 12:19,28/12/2009 12:19,NEIC,AUS,4.6,-1,10,158.643,-54.8013,200
+Green M 4.4 Earthquake in Australia at: 27 Oct 2010 14:18:04.,Green,1,Green,0.5,Australia,27/10/2010 14:18,27/10/2010 14:18,NEIC,AUS,4.4,-1,13.1,143.646,-29.4631,400
+Green M 4.7 Earthquake in Australia at: 21 Feb 2011 21:59:35.,Green,1,Green,0.5,Australia,21/02/2011 21:59,21/02/2011 21:59,NEIC,AUS,4.7,-1,9.8,135.432,-21.0693,0
+Green M 5.2 Earthquake in Australia at: 29 Nov 2011 17:01:49.,Green,1,Green,0.5,Australia,29/11/2011 17:01,29/11/2011 17:01,NEIC,AUS,5.2,-1,6.8,158.123,-54.496,200
+Green M 6 Earthquake in Australia at: 22 Jun 2012 04:31:17.,Green,1,Green,0,Australia,22/06/2012 4:31,22/06/2012 4:31,NEIC,AUS,6,-1,9.9,158.727,-54.3017,0
+Green M 4.7 Earthquake in Australia at: 29 Apr 2014 09:54:56.,Green,1,Green,0,Australia,29/04/2014 9:54,29/04/2014 9:54,NEIC,AUS,4.7,-1,15.39,139.5373,-32.7365,5034
+GREEN M 4.8 Earthquake in Australia at: 29 May 2014 03:02:42.,GREEN,1,Green,0,Australia,29/05/2014 3:02,29/05/2014 3:02,NEIC,AUS,4.8,-1,10,158.6688,-56.4203,0
+GREEN M 5.7 Earthquake in Australia at: 29 Jul 2015 23:41:40.,GREEN,1,Green,0,Australia,29/07/2015 23:41,29/07/2015 23:41,NEIC,AUS,5.7,-1,10,154.2152,-25.4326,115
+Green M 4.8 Earthquake in Australia at: 28 May 2016 16:38:44.,Green,1,Green,0,Australia,28/05/2016 16:38,28/05/2016 16:38,NEIC,AUS,4.8,-1,8.69,122.4375,-32.4323,1981
+Green M 4.8 Earthquake in Australia at: 28 May 2016 15:30:26.,Green,1,Green,0,Australia,28/05/2016 15:30,28/05/2016 15:30,NEIC,AUS,4.8,-1,9.74,122.4233,-32.3981,1930
+Green M 4.8 Earthquake in Australia at: 26 Sep 2016 06:20:59.,Green,1,Green,0,Australia,26/09/2016 6:20,26/09/2016 6:20,NEIC,AUS,4.8,-1,10,158.639,-54.8078,0
+Green M 5.5 Earthquake in Australia at: 24 Feb 2019 06:00:32.,Green,1,Green,0.01,Australia,24/02/2019 6:00,24/02/2019 6:00,NEIC,AUS,5.5,1.1 (Australia),10,157.617,-57.5997,0
+Green M 4.5 Earthquake in Australia at: 29 Sep 2020 12:11:39.,Green,1,Green,0,Australia,29/09/2020 12:11,29/09/2020 12:11,NEIC,AUS,4.5,2 (Australia),10,117.1499,-21.0339,24000
+Green M 5.6 Earthquake in Australia at: 29 Jan 2021 19:47:55.,Green,1,Green,0.01,Australia,29/01/2021 19:47,29/01/2021 19:47,NEIC,AUS,5.6,1.1 (Australia),10,121.8415,-13.963,0
