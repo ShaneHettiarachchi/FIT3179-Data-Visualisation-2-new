@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Donut chart showing total area burned (hectares) per Australian state",
+  "data": {
+    "url": "https://raw.githubusercontent.com/ShaneHettiarachchi/FIT3179-data-visualisation-2-new/main/Data/Australia/StateFires.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "filter": "datum.STATE != ' '"
+    },
+    {
+      "aggregate": [{"op": "sum", "field": "COUNT", "as": "total_burned"}],
+      "groupby": ["STATE"]
+    }
+  ],
+  "mark": {"type": "arc", "innerRadius": 70, "outerRadius": 150, "stroke": "#ffffff"},
+  "encoding": {
+    "theta": {
+      "field": "total_burned",
+      "type": "quantitative",
+      "title": "Area burned (ha)"
+    },
+    "color": {
+      "field": "STATE",
+      "type": "nominal",
+      "title": "State",
+      "scale": {"scheme": "category20"}
+    },
+    "tooltip": [
+      {"field": "STATE", "title": "State"},
+      {"field": "total_burned", "title": "Area Burned (ha)", "format": ","}
+    ]
+  },
+  "view": {"stroke": null}
+}
