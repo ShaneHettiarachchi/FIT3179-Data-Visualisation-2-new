@@ -37,7 +37,7 @@
       <!-- Layout starts here -->
         <!-- 1. Small rectangular container (info paragraph) -->
         <div class="bg-slate-700 rounded-xl shadow-md w-[1100px] h-[50px] mx-auto mb-10">
-          <p class="p-2 text-2xl font-semibold mb-4 text-center">Let's compare the Natural disasters above with Bushfires below</p>
+          <p class="p-2 text-2xl font-semibold mb-4 text-center">Let's compare the number of Natural disasters above with Bushfires below</p>
         </div>
         <div id="Fires-map" class="bg-slate-300 p-4 rounded-xl shadow-lg w-[1100px] h-[600px] mx-auto"></div>
 
@@ -49,13 +49,14 @@
             <div id="area-burnt-chart" class="w-[500px] h-[450px]"></div>
           </div>
 
-
-
           <div class="bg-slate-700 rounded-xl shadow-md w-[525px] h-[480px]"></div>
         </div>
 
         <!-- 3. One large rectangular container (full width) -->
-        <div class="bg-slate-700 rounded-xl shadow-md w-[1100px] h-[300px] mx-auto mb-10"></div>
+        <div class="bg-slate-300 rounded-xl shadow-md w-[1100px] h-[300px] mx-auto mb-10">
+
+          <div id="heatmap-chart" class="w-[1100px] h-[250px] mx-auto mt-5"></div>
+        </div>
 
         <!-- 4. Two more adjacent square containers -->
         <div class="flex justify-center gap-6 mb-10">
@@ -112,6 +113,11 @@
       const fireEmbed = {actions: false, width: 900, height: 550};
       var Fires = "Charts/Maps/2019Fires.json";
       vegaEmbed("#Fires-map", Fires, fireEmbed).then(function(result) {}).catch(console.error);
+
+      // 2019 Heatmap
+      const heatEmbed = {actions: false, width: 980, height: 225};
+      var heatmap = "Charts/Other/2019Heatmap.json";
+      vegaEmbed("#heatmap-chart", heatmap, heatEmbed).then(function(result) {}).catch(console.error);
     </script>
 
     <style>

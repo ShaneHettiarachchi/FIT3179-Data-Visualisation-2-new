@@ -1,0 +1,53 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Single-row heatmap showing number of fires per month in 2019",
+  "data": {
+    "url": "https://raw.githubusercontent.com/ShaneHettiarachchi/FIT3179-data-visualisation-2-new/main/Data/Australia/modis_2019_Australia.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "calculate": "toDate(datum.acq_date)",
+      "as": "date"
+    },
+    {
+      "timeUnit": "month",
+      "field": "date",
+      "as": "month"
+    },
+    {
+      "aggregate": [{"op": "count", "as": "fire_count"}],
+      "groupby": ["month"]
+    }
+  ],
+  "mark": "rect",
+  "width": 600,
+  "height": 80,
+  "encoding": {
+    "x": {
+      "field": "month",
+      "type": "ordinal",
+      "title": "Month",
+      "timeUnit": "month",
+      "axis": {
+        "labelExpr": "timeFormat(datum.value, '%b')",
+        "labelAngle": 0
+      }
+    },
+    "color": {
+      "field": "fire_count",
+      "type": "quantitative",
+      "title": "Number of Fires",
+      "scale": {"scheme": "oranges"}
+    },
+    "tooltip": [
+      {"field": "month", "type": "ordinal", "title": "Month", "timeUnit": "month", "format": "%B"},
+      {"field": "fire_count", "type": "quantitative", "title": "Fires"}
+    ]
+  },
+  "config": {
+    "background": "transparent",
+    "view": {"stroke": "transparent"},
+    "axis": {"domain": false}
+  }
+}
