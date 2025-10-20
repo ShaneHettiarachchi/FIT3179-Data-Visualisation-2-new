@@ -1,0 +1,102 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Compare area burnt by wildfires across selected countries using a year slider.",
+  "data": {"url": "https://raw.githubusercontent.com/ShaneHettiarachchi/FIT3179-data-visualisation-2-new/main/Data/World/AreaBurnt.csv"},
+  "transform": [
+    {
+      "fold": [
+        "area burnt by wildfires in 2012",
+          "area burnt by wildfires in 2013",
+          "area burnt by wildfires in 2014",
+          "area burnt by wildfires in 2015",
+          "area burnt by wildfires in 2016",
+          "area burnt by wildfires in 2017",
+          "area burnt by wildfires in 2018",
+          "area burnt by wildfires in 2019",
+          "area burnt by wildfires in 2020",
+          "area burnt by wildfires in 2021",
+          "area burnt by wildfires in 2022",
+          "area burnt by wildfires in 2023",
+          "area burnt by wildfires in 2024"
+      ],
+      "as": ["Year", "AreaBurnt"]
+    },
+    {
+      "filter": {
+        "field": "Entity",
+        "oneOf": ["Australia", "Europe", "South America", "North America", "Asia"]
+      }
+    },
+    {
+      "filter": "datum.Year == selectedYear"
+    }
+  ],
+  "params": [
+    {
+      "name": "selectedYear",
+      "value": "area burnt by wildfires in 2024",
+      "bind": {
+        "input": "select",
+        "options": [
+          "area burnt by wildfires in 2012",
+          "area burnt by wildfires in 2013",
+          "area burnt by wildfires in 2014",
+          "area burnt by wildfires in 2015",
+          "area burnt by wildfires in 2016",
+          "area burnt by wildfires in 2017",
+          "area burnt by wildfires in 2018",
+          "area burnt by wildfires in 2019",
+          "area burnt by wildfires in 2020",
+          "area burnt by wildfires in 2021",
+          "area burnt by wildfires in 2022",
+          "area burnt by wildfires in 2023",
+          "area burnt by wildfires in 2024"
+        ],
+        "name": "Select Year: ",
+        "labels": [
+          "2012",
+          "2013",
+          "2014",
+          "2015",
+          "2016",
+          "2017",
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ]
+      }
+    }
+  ],
+  "mark": {"type": "bar", "cornerRadiusTopLeft": 5, "cornerRadiusTopRight": 5},
+  "encoding": {
+    "x": {
+      "field": "Entity",
+      "type": "nominal",
+      "title": null,
+      "axis": {"labelAngle": 0, "labelColor": "white"}
+    },
+    "y": {
+      "field": "AreaBurnt",
+      "type": "quantitative",
+      "title": "Area Burnt (sq km)",
+      "axis" : {"labelColor" : "white", "titleColor" : "white"}
+    },
+    "color": {"field": "Entity", "type": "nominal", "legend": null},
+    "tooltip": [
+      {"field": "Entity"},
+      {"field": "Year", "title": "Year"},
+      {"field": "AreaBurnt", "title": "Area Burnt (sq km)"}
+    ]
+  },
+  "width": 500,
+  "height": 400,
+  "config": {
+    "background": "transparent",
+    "axis": {"labelColor": "black", "titleColor": "black"},
+    "title": {"color": "black"}
+  }
+}

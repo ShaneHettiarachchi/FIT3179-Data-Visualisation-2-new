@@ -41,17 +41,24 @@
 
         <!-- 2. Two square containers next to each other -->
         <div class="flex justify-center gap-6 mb-10">
-          <div class="bg-slate-700 rounded-xl shadow-md w-[480px] h-[480px]"></div>
-          <div class="bg-slate-700 rounded-xl shadow-md w-[480px] h-[480px]"></div>
+          
+          <div class="bg-slate-900 rounded-xl shadow-md w-[550px] h-[480px] flex items-center justify-center">
+            <!-- Inner div (for the actual Vega chart) -->
+            <div id="area-burnt-chart" class="w-[500px] h-[450px]"></div>
+          </div>
+
+
+
+          <div class="bg-slate-700 rounded-xl shadow-md w-[525px] h-[480px]"></div>
         </div>
 
         <!-- 3. One large rectangular container (full width) -->
-        <div class="bg-slate-700 rounded-xl shadow-md w-[1000px] h-[300px] mx-auto mb-10"></div>
+        <div class="bg-slate-700 rounded-xl shadow-md w-[1100px] h-[300px] mx-auto mb-10"></div>
 
         <!-- 4. Two more adjacent square containers -->
         <div class="flex justify-center gap-6 mb-10">
-          <div class="bg-slate-700 rounded-xl shadow-md w-[480px] h-[480px]"></div>
-          <div class="bg-slate-700 rounded-xl shadow-md w-[480px] h-[480px]"></div>
+          <div class="bg-slate-700 rounded-xl shadow-md w-[525px] h-[480px]"></div>
+          <div class="bg-slate-700 rounded-xl shadow-md w-[550px] h-[480px]"></div>
         </div>
 
         <!-- 5. Final small rectangular container -->
@@ -92,7 +99,32 @@
       mapSelect.addEventListener("change", () => {
         loadMap(mapSelect.value);
       });
+
+
+      // Area Burnt Chart
+      const BarEmbed = {actions: false, width: 450, height: 400};
+      var areabar = "Charts/Other/AreaBurntBar.json";
+      vegaEmbed("#area-burnt-chart", areabar, BarEmbed).then(function(result) {}).catch(console.error);
+      
+      
     </script>
+
+    <style>
+  /* Target the Vega-Lite bound input (the dropdown) */
+  .vega-bind select {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 4px 8px;
+  }
+
+  /* Style dropdown options */
+  .vega-bind select option {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+  }
+  </style>
 
 
   </body>
