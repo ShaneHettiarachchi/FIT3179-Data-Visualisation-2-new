@@ -16,16 +16,15 @@
 
   <body class="bg-slate-900 text-gray-100 flex items-center justify-center" style="width: 1200px; height: 3000px; margin: 0 auto;">
   <div class="bg-slate-800 p-10 rounded-2xl shadow-lg w-[1200px] h-[3000px]">
-    <h1 class="text-5xl font-bold mb-8 text-center">Natural Disasters</h1>
+    <h1 class="text-5xl font-bold mb-8 text-center">Australia's Bushfire Problem</h1>
     <h2 class="text-3xl font-semibold mb-8 text-center">Australia vs World</h2>
 
     <section class="text-center">
-      <h2 class="text-2xl font-semibold mb-4">Major Disasters in Australia</h2>
+      <h2 class="text-2xl font-semibold mb-4">Major Natural Disasters in Australia 2000-2025</h2>
 
       
       <select
         id="map-select" class="text-gray-800 font-medium rounded-lg p-2 mb-6 shadow focus:outline-none focus:ring-2 focus:ring-blue-500">
-        <option value="Charts/Maps/Fires.json">Fires</option>
         <option value="Charts/Maps/Flood.json">Floods</option>
         <option value="Charts/Maps/Earthquake.json">Earthquakes</option>
         <option value="Charts/Maps/Drought.json">Droughts</option>
@@ -33,11 +32,14 @@
         
       </select>
 
-      <div id="fire-map" class="bg-slate-300 p-4 rounded-xl shadow-lg w-[1100px] h-[600px] mx-auto"></div>
+      <div id="disaster-map" class="bg-slate-300 p-4 rounded-xl shadow-lg w-[1100px] h-[600px] mx-auto"></div>
 
       <!-- Layout starts here -->
         <!-- 1. Small rectangular container (info paragraph) -->
-        <div class="bg-slate-700 rounded-xl shadow-md w-[1100px] h-[150px] mx-auto mb-10"></div>
+        <div class="bg-slate-700 rounded-xl shadow-md w-[1100px] h-[50px] mx-auto mb-10">
+          <p class="p-2 text-2xl font-semibold mb-4 text-center">Let's compare the Natural disasters above with Bushfires below</p>
+        </div>
+        <div id="Fires-map" class="bg-slate-300 p-4 rounded-xl shadow-lg w-[1100px] h-[600px] mx-auto"></div>
 
         <!-- 2. Two square containers next to each other -->
         <div class="flex justify-center gap-6 mb-10">
@@ -76,7 +78,7 @@
       const embedOptions = { actions: false };
 
       const mapSelect = document.getElementById("map-select");
-      const target = "#fire-map";
+      const target = "#disaster-map";
 
       async function loadMap(path) {
         const container = document.querySelector(target);
@@ -106,7 +108,10 @@
       var areabar = "Charts/Other/AreaBurntBar.json";
       vegaEmbed("#area-burnt-chart", areabar, BarEmbed).then(function(result) {}).catch(console.error);
       
-      
+      // 2019 Bushfire Map
+      const fireEmbed = {actions: false, width: 900, height: 550};
+      var Fires = "Charts/Maps/2019Fires.json";
+      vegaEmbed("#Fires-map", Fires, fireEmbed).then(function(result) {}).catch(console.error);
     </script>
 
     <style>
