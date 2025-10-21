@@ -14,10 +14,14 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
   </head>
 
-  <body class="bg-slate-900 text-gray-100 flex items-center justify-center" style="width: 1200px; height: 3000px; margin: 0 auto;">
-  <div class="bg-slate-800 p-10 rounded-2xl shadow-lg w-[1200px] h-[3000px]">
+  <body class="bg-slate-900 text-gray-100 flex items-center justify-center" style="width: 1200px; height: 4200px; margin: 0 auto;">
+  <div class="bg-slate-800 p-10 rounded-2xl shadow-lg w-[1200px] h-[4200px]">
     <h1 class="text-5xl font-bold mb-8 text-center">Australia's Bushfire Problem</h1>
-    <h2 class="text-3xl font-semibold mb-8 text-center">Australia vs World</h2>
+    <h2 class="text-3xl font-semibold mb-8 text-center">Deepdive into fires in Australia</h2>
+    <div class="bg-slate-700 rounded-xl shadow-md w-[1100px] mx-auto mb-10 p-4">
+    <p class="text-lg text-center">Fire isn’t just a seasonal challenge for Australia, it’s become part of it's identity. Bushfires have become a defining feature of the country’s environment, occurring more often and leaving a bigger mark than any other natural disaster. This visualisation aims to explore how widespread, intense, and consistent these fires have become. From the sheer number of incidents to the massive areas burned.</p>
+    <p class="text-lg font-semibold text-center">First let's take a look at other natural disasters in Australia to put bushfires into context.</p>
+  </div>
 
     <section class="text-center">
       <h2 class="text-2xl font-semibold mb-4">Major Natural Disasters in Australia 2000-2025</h2>
@@ -32,42 +36,92 @@
         
       </select>
 
+
+      <!-- Disaster Map -->
       <div id="disaster-map" class="bg-slate-300 p-4 rounded-xl shadow-lg w-[1100px] h-[600px] mx-auto"></div>
+      <div class="text-sm text-gray-400 text-center mt-2 mb-6">Source: https://www.kaggle.com/datasets/elvinrustam/global-disaster-events-20002025/data</div>
+
 
       <!-- Layout starts here -->
-        <!-- 1. Small rectangular container (info paragraph) -->
+        <!-- Small info paragraph -->
         <div class="bg-slate-700 rounded-xl shadow-md w-[1100px] h-[50px] mx-auto mb-10">
           <p class="p-2 text-2xl font-semibold mb-4 text-center">Let's compare the number of Natural disasters above with Bushfires below</p>
         </div>
-        <div id="Fires-map" class="bg-slate-300 p-4 rounded-xl shadow-lg w-[1100px] h-[600px] mx-auto"></div>
 
-        <!-- 2. Two square containers next to each other -->
+        <!-- Fire Map -->
+        <h3 class="text-xl font-semibold text-center mb-2">Number of Fires in Austalia in 2019</h3>
+        <div id="Fires-map" class="bg-slate-300 p-4 rounded-xl shadow-lg w-[1100px] h-[600px] mx-auto"></div>
+        <div class="text-sm text-gray-400 text-center mt-2 mb-6">Source: https://www.kaggle.com/datasets/gabrielbgutierrez/satellite-data-on-australia-fires</div>
+        
+        
+        <div class="bg-slate-700 rounded-xl shadow-md w-[1100px] mx-auto mb-10 p-4">
+
+        <p class="text-lg text-center">The first two maps make the difference impossible to miss. When you compare bushfires with floods and other natural disasters, the dominance of fire jumps out, especially across the southeast, where red dots cluster thick across the map. Floods and other events show up here and there, but bushfires cover the landscape. To further drive the point home, the other natural disaster events are over a 25 year period, whereas the fires shown all occurred within 2019.</p>
+        <p class="text-xl font-semibold text-center mt-4">It’s a clear visual message, bushfires aren’t just more frequent, they’re more widespread.</p>
+      </div>
+
+        <!-- Two square containers next to each other -->
+         <h3 class="text-2xl font-semibold text-center mb-6">Bushfire Impact: Area Burnt and when do they happen?</h3>
         <div class="flex justify-center gap-6 mb-10">
-          
-          <div class="bg-slate-900 rounded-xl shadow-md w-[550px] h-[480px] flex items-center justify-center">
-            <!-- Inner div (for the actual Vega chart) -->
-            <div id="area-burnt-chart" class="w-[500px] h-[450px]"></div>
+
+          <!-- Left container-->
+          <div class="bg-slate-700 rounded-xl shadow-md w-[550px] h-[480px] flex items-center justify-center">
+            <p class="text-lg text-center px-4">Looking beyond Australia, the comparison becomes even more striking. The bar graph to the right shows that Australia, just one country, records areas burned from fires on par with entire continents, apart from Africa. It’s a reminder of just how extreme Australia’s fire activity really is. The monthly heatmap below adds another layer to the story, showing a sharp rise in December and January during the peak of the country’s heat and dryness.</p>
           </div>
 
-          <div class="bg-slate-700 rounded-xl shadow-md w-[525px] h-[480px]"></div>
+          <!-- Right container -->
+          <div class="bg-slate-900 rounded-xl shadow-md w-[525px] h-[480px] flex items-center justify-center">
+
+            <!-- Area burnt bar chart -->
+            <div id="area-burnt-chart" class="w-[500px] h-[450px]"></div>
+            
+          </div>
         </div>
 
-        <!-- 3. One large rectangular container (full width) -->
+
+        <!-- One large rectangular container -->
         <div class="bg-slate-300 rounded-xl shadow-md w-[1100px] h-[300px] mx-auto mb-10">
-
+          
+          <!-- Month heatmap -->
+          <h3 class="text-xl font-semibold text-center mb-2 text-gray-800">Number of fires each month (2019)</h3>
           <div id="heatmap-chart" class="w-[1100px] h-[250px] mx-auto mt-5"></div>
+          <div class="text-sm text-gray-400 text-center mt-2 mb-6">Source: https://www.kaggle.com/datasets/gabrielbgutierrez/satellite-data-on-australia-fires</div>
         </div>
 
-        <!-- 4. Two more adjacent square containers -->
+
+
+        <!-- Two more square containers next to each other-->
+
+         <h3 class="text-2xl font-semibold text-center mb-6">Burn Severity and Regional Breakdown</h3>
         <div class="flex justify-center gap-6 mb-10">
-          <div class="bg-slate-700 rounded-xl shadow-md w-[525px] h-[480px]"></div>
-          <div class="bg-slate-700 rounded-xl shadow-md w-[550px] h-[480px]">
+
+        <!-- Left stacked containers -->
+        <div class="flex flex-col gap-6">
+          <div class="bg-slate-900 rounded-xl shadow-md w-[550px] h-[480px]">
+
+            <!-- Donut Chart -->
+            <h3 class="text-xl font-semibold text-center mb-2">Hectares burnt in each state</h3>
             <div id="donut-chart" class="w-[500px] h-[450px] mx-auto mt-5"></div>
           </div>
+          <div class="bg-slate-900 rounded-xl shadow-md w-[550px] h-[240px]">
+
+            <!-- Burn percentage chart -->
+            <h3 class="text-xl font-semibold text-center mb-2">Area burnt % of state</h3>
+            <div id="burn-perc-chart" class="w-[500px] h-[500px] mx-auto mt-5"></div>
+          </div>
         </div>
 
-        <!-- 5. Final small rectangular container -->
-        <div class="bg-slate-700 rounded-xl shadow-md w-[1000px] h-[120px] mx-auto mb-10"></div>
+        <!-- Right large container -->
+        <div class="bg-slate-700 rounded-xl shadow-md w-[525px] h-[745px] flex items-center justify-center">
+          <p class="text-lg text-center p-4">This section highlights both the scale and proportional impact of bushfires across Australia’s states. The donut chart shows the total hectares of land that have experienced fire historically, with the Northern Territory, Western Australia, and Queensland contributing the largest slices, unsurprising given their overall landmass and forest coverage. But the horizontal bar chart reframes this data by showing the percentage of each state’s total land area that has burned. Here, the Northern Territory, South Australia, and Western Australia emerge as the most affected. This shift from absolute to relative impact reveals that although states may have a large difference in hectares burnt, all states still have had more than 50% of the total forests burned at some point.</p>
+        </div>
+</div>
+
+        <!-- Final small rectangular container -->
+         <h3 class="text-2xl font-semibold text-center mb-6">Final remarks</h3>
+        <div class="bg-slate-700 rounded-xl shadow-md w-[1100px] h-[120px] mx-auto mb-10 p-4">
+        <p class="text-lg text-center">This visualisation makes it clear that bushfires are Australia’s most frequent and most widespread natural disaster. They outnumber floods, storms, and everything else, and they cause more damage each year. With hotter temperatures and longer fire seasons becoming the new normal, the need for serious action around prevention and adaptation is more urgent than ever.</p>
+      </div>
       </section>
     </div>
     </section>
@@ -107,7 +161,7 @@
 
 
       // Area Burnt Chart
-      const BarEmbed = {actions: false, width: 450, height: 400};
+      const BarEmbed = {actions: false, width: 425, height: 400};
       var areabar = "Charts/Other/AreaBurntBar.json";
       vegaEmbed("#area-burnt-chart", areabar, BarEmbed).then(function(result) {}).catch(console.error);
       
@@ -117,7 +171,7 @@
       vegaEmbed("#Fires-map", Fires, fireEmbed).then(function(result) {}).catch(console.error);
 
       // 2019 Heatmap
-      const heatEmbed = {actions: false, width: 980, height: 225};
+      const heatEmbed = {actions: false, width: 980, height: 200};
       var heatmap = "Charts/Other/2019Heatmap.json";
       vegaEmbed("#heatmap-chart", heatmap, heatEmbed).then(function(result) {}).catch(console.error);
 
@@ -125,9 +179,19 @@
       const donutEmbed = {actions: false, width: 400, height: 450};
       var donut = "Charts/Other/DonutStates.json";
       vegaEmbed("#donut-chart", donut, donutEmbed).then(function(result) {}).catch(console.error);
+
+      // Burn percentage chart
+      const percEmbed = {actions: false, width: 420, height: 500};
+      var burnperc = "Charts/Other/BurnPerc.json";
+      vegaEmbed("#burn-perc-chart", burnperc, percEmbed).then(function(result) {}).catch(console.error);
     </script>
 
     <style>
+  
+  
+  /* I used chatGPT to generate the following 13 lines of code to adjust the colours of the drop down box below the bar chart. 
+  Code has been tweaked to fit the context of this project  */
+
   /* Target the Vega-Lite bound input (the dropdown) */
   .vega-bind select {
     background-color: rgb(255, 255, 255);
