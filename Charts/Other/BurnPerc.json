@@ -1,0 +1,75 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Percentage of state area burned",
+  "data": {
+    "url": "https://raw.githubusercontent.com/ShaneHettiarachchi/FIT3179-data-visualisation-2-new/main/Data/Australia/StateFires.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "filter": "datum.STATE != ' '"
+    },
+    {
+      "filter": "datum.FOR_BURN_T != 'Forest not burnt'"
+    },
+    {
+      "aggregate": [{"op": "sum", "field": "COUNT", "as": "burned_area"}],
+      "groupby": ["STATE"]
+    },
+    {
+      "lookup": "STATE",
+      "from": {
+        "data": {
+          "values": [
+            {"STATE": "Vic", "total_area": 22741600},
+            {"STATE": "NSW", "total_area": 80064200},
+            {"STATE": "Qld", "total_area": 172974200},
+            {"STATE": "SA", "total_area": 98432100},
+            {"STATE": "WA", "total_area": 252701300},
+            {"STATE": "Tas", "total_area": 6451900},
+            {"STATE": "NT", "total_area": 134912900},
+            {"STATE": "ACT", "total_area": 228000}
+          ]
+        },
+        "key": "STATE",
+        "fields": ["total_area"]
+      }
+    },
+    {
+      "calculate": "(datum.burned_area / datum.total_area) * 100",
+      "as": "burned_pct"
+    }
+  ],
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "STATE",
+      "type": "nominal",
+      "sort": "-x",
+      "title": "State"
+    },
+    "x": {
+      "field": "burned_pct",
+      "type": "quantitative",
+      "title": "% of State Forest Area Burned",
+      "axis": {"format": ".1f"}
+    },
+    "color": {
+      "field": "burned_pct",
+      "type": "quantitative",
+      "scale": {"scheme": "reds"},
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "STATE", "title": "State"},
+      {"field": "burned_area", "title": "Burned Area (ha)", "format": ","},
+      {"field": "total_area", "title": "Total Area (ha)", "format": ","},
+      {"field": "burned_pct", "title": "% Burned", "format": ".2f"}
+    ]
+  },
+  "config": {
+    "background": "transparent",
+    "axis": {"labelColor": "white", "titleColor": "white"},
+    "title": {"color": "white"}
+  }
+}
