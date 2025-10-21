@@ -10,6 +10,9 @@
       "filter": "datum.STATE != ' '"
     },
     {
+      "filter": "datum.FOR_BURN_T != 'Forest not burnt'"
+    },
+    {
       "aggregate": [{"op": "sum", "field": "COUNT", "as": "total_burned"}],
       "groupby": ["STATE"]
     }
@@ -32,5 +35,9 @@
       {"field": "total_burned", "title": "Area Burned (ha)", "format": ","}
     ]
   },
+  "config": {
+    "background": "transparent",
+    "legend": {"labelColor" : "white", "titleColor": "white", "labelFontSize": 15, "titleFontSize": 15}},
   "view": {"stroke": null}
+  
 }

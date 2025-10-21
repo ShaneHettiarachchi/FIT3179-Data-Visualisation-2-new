@@ -61,7 +61,9 @@
         <!-- 4. Two more adjacent square containers -->
         <div class="flex justify-center gap-6 mb-10">
           <div class="bg-slate-700 rounded-xl shadow-md w-[525px] h-[480px]"></div>
-          <div class="bg-slate-700 rounded-xl shadow-md w-[550px] h-[480px]"></div>
+          <div class="bg-slate-700 rounded-xl shadow-md w-[550px] h-[480px]">
+            <div id="donut-chart" class="w-[500px] h-[450px] mx-auto mt-5"></div>
+          </div>
         </div>
 
         <!-- 5. Final small rectangular container -->
@@ -118,6 +120,11 @@
       const heatEmbed = {actions: false, width: 980, height: 225};
       var heatmap = "Charts/Other/2019Heatmap.json";
       vegaEmbed("#heatmap-chart", heatmap, heatEmbed).then(function(result) {}).catch(console.error);
+
+      // Donut Chart
+      const donutEmbed = {actions: false, width: 400, height: 450};
+      var donut = "Charts/Other/DonutStates.json";
+      vegaEmbed("#donut-chart", donut, donutEmbed).then(function(result) {}).catch(console.error);
     </script>
 
     <style>
